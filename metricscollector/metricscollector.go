@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/marckhouzam/custom-prometheus-exporter/configparser"
+	"github.com/realflunschi/custom-prometheus-exporter/configparser"
 	"github.com/prometheus/client_golang/prometheus"
 )
 

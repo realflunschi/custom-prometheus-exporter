@@ -1,4 +1,4 @@
-module github.com/marckhouzam/custom-prometheus-exporter
+module github.com/realflunschi/custom-prometheus-exporter
 
 go 1.16
 

@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/marckhouzam/custom-prometheus-exporter/configparser"
-	"github.com/marckhouzam/custom-prometheus-exporter/webservers"
+	"github.com/realflunschi/custom-prometheus-exporter/configparser"
+	"github.com/realflunschi/custom-prometheus-exporter/webservers"
 )
 
 const defaultMainPort int = 9530 // Reserved at https://github.com/prometheus/prometheus/wiki/Default-port-allocations

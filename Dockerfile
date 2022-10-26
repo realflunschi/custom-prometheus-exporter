@@ -1,6 +1,6 @@
 FROM golang:1.9 as build
 
-WORKDIR /go/src/github.com/marckhouzam/custom-prometheus-exporter
+WORKDIR /go/src/github.com/realflunschi/custom-prometheus-exporter
 COPY . .
 
 RUN go-wrapper download github.com/prometheus/client_golang/prometheus && \
@@ -22,6 +22,6 @@ RUN apk update && \
 
 WORKDIR /root
 
-COPY --from=build /go/src/github.com/marckhouzam/custom-prometheus-exporter/custom-prometheus-exporter .
+COPY --from=build /go/src/github.com/realflunschi/custom-prometheus-exporter/custom-prometheus-exporter .
 
 ENTRYPOINT ["./custom-prometheus-exporter"]

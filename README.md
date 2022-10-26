@@ -14,7 +14,7 @@ The simplest way to try out the Custom Prometheus Exporter is through docker:
 docker run --rm \
     --name custom-prometheus-exporter -p 12345:12345 \
     -v $(pwd)/example-configurations/test-exporter.yaml:/tmp/test-exporter.yaml \
-    marckhouzam/custom-prometheus-exporter -f /tmp/test-exporter.yaml
+    realflunschi/custom-prometheus-exporter -f /tmp/test-exporter.yaml
 ```
 Then you can see the metrics using:
 ```
@@ -77,7 +77,7 @@ docker run --rm \
     -v $(pwd)/example-configurations/test-exporter.yaml:/tmp/test-exporter.yaml \
     -v $(pwd)/example-configurations/docker-exporter.yaml:/tmp/docker-exporter.yaml \
     -v /var/run/docker.sock:/var/run/docker.sock \
-    marckhouzam/custom-prometheus-exporter -f /tmp/test-exporter.yaml -f /tmp/docker-exporter.yaml
+    realflunschi/custom-prometheus-exporter -f /tmp/test-exporter.yaml -f /tmp/docker-exporter.yaml
 ```
 Then you can see the metrics using:
 ```
@@ -152,7 +152,7 @@ The code is written in [Go](https://tour.golang.org).  If you don't already have
 
 Then get and compile the code:
 ```
-git clone https://github.com/marckhouzam/custom-prometheus-exporter.git
+git clone https://github.com/realflunschi/custom-prometheus-exporter.git
 cd custom-prometheus-exporter
 go build
 ```
