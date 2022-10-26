@@ -3,6 +3,7 @@ Description=Prometheus custom exporter
 
 [Service]
 Restart=on-failure
+RestartSec=10s
 User=prometheus
 Environment=HOSTNAME=localhost
 Environment=PORT=9530
