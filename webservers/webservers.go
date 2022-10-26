@@ -35,7 +35,7 @@ func handleReloadEndpoint(w http.ResponseWriter, r *http.Request) {
 				        <head><title>Custom Prometheus Exporter</title></head>
 					    <body>
 					       <h1>Custom Prometheus Exporter</h1>
-					       <p>For more information, visit <a href=https://github.org/marckhouzam/custom-prometheus-exporter>GitHub</a></p>
+					       <p>For more information, visit <a href=https://github.com/marckhouzam/custom-prometheus-exporter>GitHub</a></p>
 					       <p><h3>Only a POST can be used to reload the Custom Prometheus Exporter</h3></p>
 						</body>
 					    </html>
@@ -74,7 +74,7 @@ func handleMainRootEndpoint(w http.ResponseWriter, r *http.Request) {
 	    <head><title>Custom Prometheus Exporter</title></head>
 	    <body>
 	        <h1>Custom Prometheus Exporter</h1>
-	        <p>For more information, visit <a href=https://github.org/marckhouzam/custom-prometheus-exporter>GitHub</a></p>
+	        <p>For more information, visit <a href=https://github.com/marckhouzam/custom-prometheus-exporter>GitHub</a></p>
 	        <p>Available main endpoints:</p>
 	        <ul>
 	            <li><a href=/validate>/validate</a> - Validate if modifications to the configuration files are valid.
@@ -103,7 +103,7 @@ func handleValidateEndpoint(w http.ResponseWriter, r *http.Request) {
 					<head><title>Custom Prometheus Exporter</title></head>
 					<body>
                         <h1>Custom Prometheus Exporter</h1>
-                        <p>For more information, visit <a href=https://github.org/marckhouzam/custom-prometheus-exporter>GitHub</a></p>
+                        <p>For more information, visit <a href=https://github.com/marckhouzam/custom-prometheus-exporter>GitHub</a></p>
                         <p><h3>` + msg + `</h3></p>
                         </body>
                         </html>
