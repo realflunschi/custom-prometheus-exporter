@@ -152,10 +152,14 @@ sudo cp example-configurations/custom-os-exporter.yaml /etc/prometheus/custom-ex
 cd systemd
 sudo cp custom-prometheus-exporter /etc/default
 sudo cp custom-prometheus-exporter.service /etc/systemd/system
+# change listening interface
+sudo sed -i -e s/localhost/$HOSTNAME/ /etc/systemd/system/custom-prometheus-exporter.service
 sudo cp prometheus /etc/sudoers.d
 sudo systemctl daemon-reload
+sudo systemctl stop custom-prometheus-exporter.service
 sudo systemctl start custom-prometheus-exporter.service
 sudo systemctl enable custom-prometheus-exporter.service
+cd ..
 ```
 
 ## Contributing
