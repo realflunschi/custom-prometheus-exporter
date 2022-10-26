@@ -1,0 +1,13 @@
+# Set the command-line arguments to pass to the server.
+# Due to shell scaping, to pass backslashes for regexes, you need to double
+# them (\\d for \d). If running under systemd, you need to double them again
+# (\\\\d to mean \d), and escape newlines too.
+ARGS='-f /etc/prometheus/custom-exporter/custom-os-exporter.yaml'
+
+# custom-prometheus-exporter supports the following options:
+#
+# -f value
+#	A configuration file defining some exporters.
+#	This flag can be used multiple times to include multiple files.
+# -p int
+#	The main http port for the global custom-prometheus-exporter (default 9530)
