@@ -143,12 +143,20 @@ metrics:
 
 ## Systemd integration
 
-* build the binary (see Building the project below)
-* copy the binary to /usr/local/bin
-* create your yaml configuration files, e.g., in directory `/etc/prometheus/custom-exporter`
-* copy `systemd/custom-prometheus-exporter` to `/etc/default` and adjust it
-* copy `systemd/custom-prometheus-exporter.service` to `/etc/systemd/system`
-* ... the unit file ...
+Build the binary (see Building the project below) and optionally build or adjust your conficuration files.
+Then
+```
+sudo install custom-prometheus-exporter /usr/local/bin
+sudo mkdir -p /etc/prometheus/custom-exporter
+sudo cp example-configurations/custom-os-exporter.yaml /etc/prometheus/custom-exporter
+cd systemd
+sudo cp custom-prometheus-exporter /etc/default
+sudo cp custom-prometheus-exporter.service /etc/systemd/system
+sudo cp prometheus /etc/sudoers.d
+sudo systemctl daemon-reload
+sudo systemctl start custom-prometheus-exporter.service
+sudo systemctl enable custom-prometheus-exporter.service
+```
 
 ## Contributing
 
