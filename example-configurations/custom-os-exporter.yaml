@@ -1,6 +1,5 @@
 name: custom-os-exporter
 endpoint: /metrics
-port: 9929
 metrics:
 - name: mail_queue_unsent
   help: Number of unsent mails
