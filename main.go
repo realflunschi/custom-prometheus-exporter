@@ -28,13 +28,15 @@ func (a *arrayFlag) Set(str string) error {
 
 // End arrayFlag
 
-func parseFlags() (int, []string) {
+func parseFlags() (string, int, []string) {
 	// Use a new flag set to allow tests to call this method more than once
 	var f = flag.NewFlagSet(os.Args[0], flag.ExitOnError)
 
+	var host string
 	var port int
 	var configFiles = arrayFlag{}
 
+	f.StringVar(&host, "h", "", "The host (ip interface) on which all exporters will listen. Defaults to all interfaces")
 	f.IntVar(&port, "p", defaultMainPort, "The main http port for the global custom-prometheus-exporter")
 	f.Var(&configFiles, "f", "A configuration file defining some exporters.\n"+
 		"This flag can be used multiple times to include multiple files.")
@@ -48,13 +50,14 @@ func parseFlags() (int, []string) {
 		os.Exit(1)
 	}
 
-	return port, configFiles
+	return host, port, configFiles
 }
 
 func main() {
-	port, files := parseFlags()
+	host, port, files := parseFlags()
 
 	config := configparser.Config{
+		Host:        host,
 		MainPort:    port,
 		ConfigFiles: files,
 	}

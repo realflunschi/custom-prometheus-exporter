@@ -17,6 +17,9 @@ const (
 
 // Config is the structure that holds the configuration of the custom-prometheus-exporter
 type Config struct {
+	// The host (ip interface) on which all exporters will listen. Defaults to all interfaces
+	Host string
+
 	// The port used by the main webserver and possibly by some exporters
 	MainPort int
 

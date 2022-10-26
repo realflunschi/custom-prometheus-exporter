@@ -153,7 +153,7 @@ func createMainServer() {
 	server.HandleFunc(validateEndpoint, handleValidateEndpoint)
 
 	mainServer = &http.Server{
-		Addr:    fmt.Sprintf(":%d", configuration.MainPort),
+		Addr:    fmt.Sprintf("%s:%d", configuration.Host, configuration.MainPort),
 		Handler: server,
 	}
 }
@@ -164,7 +164,7 @@ func createExporterWebserver(handler *http.Handler, exporterCfg configparser.Exp
 		// The exporter should re-use the main port
 		server := mainServer.Handler.(*http.ServeMux)
 		server.Handle(fmt.Sprintf("%s", exporterCfg.Endpoint), *handler)
-		log.Println(exporterCfg.Name, "listening on port", configuration.MainPort, "and endpoint", exporterCfg.Endpoint)
+		log.Printf("%s listening on host:port %s:%d and endpoint %s\n", exporterCfg.Name, configuration.Host, configuration.MainPort, exporterCfg.Endpoint)
 	} else {
 		// Need to call serveMux to be able to run multiple servers at the same time
 		server := http.NewServeMux()
@@ -175,11 +175,11 @@ func createExporterWebserver(handler *http.Handler, exporterCfg configparser.Exp
 
 		// Create a server object which we can later Shutdown()
 		newWebServer := &http.Server{
-			Addr:    fmt.Sprintf(":%d", exporterCfg.Port),
+			Addr:    fmt.Sprintf("$s:%d", configuration.Host, exporterCfg.Port),
 			Handler: server,
 		}
 		webServers = append(webServers, newWebServer)
-		log.Println(exporterCfg.Name, "listening on port", exporterCfg.Port, "and endpoint", exporterCfg.Endpoint)
+		log.Printf("%s listening on host:port %s:%d and endpoint %s\n", exporterCfg.Name, configuration.Host, exporterCfg.Port, exporterCfg.Endpoint)
 	}
 }
 
@@ -202,7 +202,7 @@ func CreateListenAndServe(config configparser.Config) {
 			}()
 		}
 
-		log.Println("Main server listening on port", configuration.MainPort)
+		log.Printf("Main server listening on host:port %s:%d\n", configuration.Host, configuration.MainPort)
 		// Block on the main server
 		mainServer.ListenAndServe()
 
