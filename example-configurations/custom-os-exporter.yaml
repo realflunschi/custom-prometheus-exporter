@@ -1,7 +1,7 @@
 name: custom-os-exporter
 endpoint: /metrics
 metrics:
-- name: mail_queue_unsent
+- name: mail_queue_length
   help: Number of unsent mails
   type: gauge
   executions:
