@@ -1,0 +1,3 @@
+#
+
+prometheus  ALL=(ALL) NOPASSWD: /usr/lib/nagios/plugins/

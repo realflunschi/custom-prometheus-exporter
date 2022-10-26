@@ -1,0 +1,10 @@
+name: custom-os-exporter
+endpoint: /metrics
+port: 9929
+metrics:
+- name: mail_queue_unsent
+  help: Number of unsent mails
+  type: gauge
+  executions:
+  - type: bash
+    command: sudo /usr/lib/nagios/plugins/check_mailq -w 100000 -c 100001 | cut -d= -f2 | cut -d";" -f1

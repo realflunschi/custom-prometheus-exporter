@@ -1,0 +1,12 @@
+[Unit]
+Description=Prometheus custom exporter
+
+[Service]
+Restart=on-failure
+User=prometheus
+EnvironmentFile=/etc/default/custom-prometheus-exporter
+ExecStart=/usr/local/bin/custom-prometheus-exporter $ARGS
+ExecReload=/usr/bin/curl -X POST localhost:9530/-/reload
+
+[Install]
+WantedBy=multi-user.target

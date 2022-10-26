@@ -141,6 +141,15 @@ metrics:
                       # API - Changes affect consumers of metrics
 ```
 
+## Systemd integration
+
+* build the binary (see Building the project below)
+* copy the binary to /usr/local/bin
+* create your yaml configuration files, e.g., in directory `/etc/prometheus/custom-exporter`
+* copy `systemd/custom-prometheus-exporter` to `/etc/default` and adjust it
+* copy `systemd/custom-prometheus-exporter.service` to `/etc/systemd/system`
+* ... the unit file ...
+
 ## Contributing
 
 Contributions are welcomed!  You can submit code or documentation Pull Requests, or open issues with ideas or problems you found.
